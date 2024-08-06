@@ -21,3 +21,9 @@ alias lsalias="grep -in --color -e '^alias\s+*' ~/mymacrc | sed 's/alias //' | g
 export PATH=$PATH:/Users/crisemble/.spicetify
 export PATH="/opt/homebrew/Cellar/ruby/3.3.0/bin:$PATH"
 export PATH="$PATH:/Users/crisemble/.local/bin" # Created by `pipx` on 2024-03-15 23:01:45
+export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
+
+# Git Autocompletion
+zstyle ':completion:*:*:git:*' script ~/.dotfiles/scripts/.git-completion.bash
+fpath=(~/.dotfiles/scripts/.zsh $fpath)
+autoload -Uz compinit && compinit

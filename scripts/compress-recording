@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+
+FILE=$1
+
+
+FILE_SANS_EXT=${FILE%%.*}
+EXTENSION="${FILE#*.}"
+
+CRF_VALUES=(28)
+PRESETS=(fast)
+
+for crf in "${CRF_VALUES[@]}"; 
+do
+    for preset in "${PRESETS[@]}"; 
+    do
+        OUTPUT_FILE="${FILE_SANS_EXT}-crf${crf}_${preset}.mp4"
+        OUTPUT_FILE_SCALED="${FILE_SANS_EXT}-crf${crf}_${preset}-scaled.mp4"
+        LOG_FILE="${FILE_SANS_EXT}-crf${crf}_${preset}.log"
+
+        echo "Compressing $FILE to $OUTPUT_FILE" 
+        output=$(
+TIMEFORMAT="CRF=$crf, Preset=$preset - It took %R seconds."
+        time {
+            ffmpeg -i "$FILE" -vcodec h264 -acodec aac -crf $crf -preset $preset -tune film -b:a 128k "$OUTPUT_FILE" &> "$LOG_FILE"
+        } 2>&1
+)
+        FILE_SIZE=$(du -h "$OUTPUT_FILE" | cut -f1)
+        echo "Resulting file size: ${FILE_SIZE}"
+    done
+done
