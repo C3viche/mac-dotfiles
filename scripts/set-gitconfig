@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Load environment variables from .env
+export $(grep -v '^#' .env | xargs)
+
+# Set Git configuration dynamically
+git config --global user.name "$GIT_USER_NAME"
+git config --global user.email "$GIT_USER_EMAIL"

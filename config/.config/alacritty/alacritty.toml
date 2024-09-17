@@ -1,0 +1,29 @@
+import = [
+  # uncomment the flavour you want below:
+  # "~/.config/alacritty/catppuccin/catppuccin-latte.toml"
+  # "~/.config/alacritty/catppuccin/catppuccin-frappe.toml"
+   "~/.config/alacritty/catppuccin/catppuccin-macchiato.toml"
+  # "~/.config/alacritty/catppuccin/catppuccin-mocha.toml"
+]
+
+live_config_reload = true
+
+[shell]
+program = "/bin/zsh"
+args = ["-l"] 
+
+[font]
+size = 15.0
+
+[font.normal]
+family = "SFMono Nerd Font"
+style = "Regular"
+
+[window]
+decorations = "buttonless"
+dynamic_padding = false
+opacity = 0.75
+
+[window.padding]
+x = 18
+y = 18
