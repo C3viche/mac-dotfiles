@@ -1,4 +1,4 @@
-import = [
+general.import = [
   # uncomment the flavour you want below:
   # "~/.config/alacritty/catppuccin/catppuccin-latte.toml"
   # "~/.config/alacritty/catppuccin/catppuccin-frappe.toml"
@@ -6,9 +6,9 @@ import = [
   # "~/.config/alacritty/catppuccin/catppuccin-mocha.toml"
 ]
 
-live_config_reload = true
+general.live_config_reload = true
 
-[shell]
+[terminal.shell]
 program = "/bin/zsh"
 args = ["-l"] 
 

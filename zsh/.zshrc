@@ -28,3 +28,4 @@ zstyle ':completion:*:*:git:*' script ~/.dotfiles/scripts/.git-completion.bash
 fpath=(~/.dotfiles/scripts/.zsh $fpath)
 autoload -Uz compinit && compinit
 
+export PATH="/opt/homebrew/anaconda3/bin:$PATH"
